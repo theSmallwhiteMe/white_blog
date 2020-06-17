@@ -1,76 +1,64 @@
 <template>
     <div>
-        <nav class="main">
-           <div class="f-left external-links">
-               <span><a-icon type="github" /></span>
-               <span><a-icon class="c-ff5b5b" type="facebook" /></span>
-               <span><a-icon type="wechat" /></span>
-               <span><a-icon type="qq" /></span>
-               <span><a-icon type="twitter" /></span>
-           </div>
-           <div class="f-right">
-               <span class="c-23aee2">LOGIN</span>
-               <span class="c-ff5b5b">REGISTER</span>
-               <span>
-                   <a-select value="ENGLISH"
-                             size="small"
-                             style="width: 120px"
-                             option-label-prop="label">
-                        <a-select-option value="CHINESE" label="CHINESE">
-                          <span role="img" aria-label="China">
-                            🇨🇳
-                          </span>
-                          CHINESE
-                        </a-select-option>
-                        <a-select-option value="ENGLISH" label="ENGLISH">
-                          <span role="img" aria-label="USA">
-                            🇺🇸
-                          </span>
-                          ENGLISH
-                        </a-select-option>
-                   </a-select>
-               </span>
-           </div>
-       </nav>
-        <a-row class="main">
-            <a-col :span="6"
-                   style="text-align: left">
-                <div class="logo c-ff5b5b"
-                     style="font-size: 18px;font-weight: bold;padding-left:15px">
-                    theSmallWhiteMe
-                </div>
-            </a-col>
-            <a-col :span="12">
-                <div class="search">
-                    <a-input style="width: 100%" default-value="mysite">
-                        <a-icon class="c-ff5b5b" slot="addonAfter" type="search" />
-                    </a-input>
-                </div>
-            </a-col>
-            <a-col :span="6">
-
-            </a-col>
-        </a-row>
+        <header-nav></header-nav>
+        <div>
+            <a-menu class="main-p menus"
+                    mode="horizontal">
+                <a-menu-item key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
+                <a-menu-item key="app"> <a-icon type="appstore" />Navigation Two </a-menu-item>
+                <a-sub-menu>
+        <span slot="title" class="submenu-title-wrapper"
+        ><a-icon type="setting" />Navigation Three - Submenu</span
+        >
+                    <a-menu-item-group title="Item 1">
+                        <a-menu-item key="setting:1">
+                            Option 1
+                        </a-menu-item>
+                        <a-menu-item key="setting:2">
+                            Option 2
+                        </a-menu-item>
+                    </a-menu-item-group>
+                    <a-menu-item-group title="Item 2">
+                        <a-menu-item key="setting:3">
+                            Option 3
+                        </a-menu-item>
+                        <a-menu-item key="setting:4">
+                            Option 4
+                        </a-menu-item>
+                    </a-menu-item-group>
+                </a-sub-menu>
+                <a-menu-item key="alipay">
+                    <a href="https://antdv.com" target="_blank" rel="noopener noreferrer"
+                    >Navigation Four - Link</a
+                    >
+                </a-menu-item>
+            </a-menu>
+        </div>
     </div>
 </template>
 
 <script>
+    import headerNav from "../components/header-nav";
     export default {
-        name: "index"
+        name: "index",
+        components:{
+            headerNav,
+        }
     }
 </script>
 
 <style scoped>
-    nav {
-        overflow: hidden;
+    .menus {
+        text-align: left;
+        background: #0c273c;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-weight: bold;
     }
-    nav span {
-        display: inline-block;
-        padding: 5px 10px;
-        cursor: pointer;
+    .menus li:nth-child(2){
+        background: #ff5b5b;
     }
-    nav span:hover{
-        color: #ff5b5b;
+    .menus>.ant-menu-item-active{
+        color: #FFFFFF !important;
     }
-
 </style>
