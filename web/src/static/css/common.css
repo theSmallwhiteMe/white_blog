@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    margin: 0 18% !important;
+    overflow: hidden;
+}
+
+.f-left {
+    float: left;
+}
+.f-right{
+    float: right;
+}
+
+.c-ff5b5b {
+    color: #ff5b5b !important;
+}
+.c-23aee2{
+    color: #23aee2 !important;
+}
+
+/*.search{*/
+/*    width: 40%;*/
+/*}*/
+.search .ant-input,.search .ant-input-group-addon{
+    border-radius: 15px;
+}
