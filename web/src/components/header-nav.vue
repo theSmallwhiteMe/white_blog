@@ -11,7 +11,7 @@
             <div class="f-right">
                 <span class="c-23aee2">LOGIN</span>
                 <span class="c-ff5b5b">REGISTER</span>
-                <span>
+                <span class="language">
                    <a-select value="ENGLISH"
                              size="small"
                              style="width: 120px"
