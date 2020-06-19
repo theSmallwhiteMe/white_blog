@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+body,html{
+    height: 100%;
+}
 html {
     --antd-wave-shadow-color: #ff5b5b !important;
 }
