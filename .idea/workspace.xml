@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77e9581f-530c-41c7-9a0e-b0108c49cd42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/web/src/components/header-nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/header-nav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/static/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/views/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/views/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/vue.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +46,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/src/static" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -55,7 +64,9 @@
       <workItem from="1592185658877" duration="2254000" />
       <workItem from="1592190808601" duration="5187000" />
       <workItem from="1592271971274" duration="125000" />
-      <workItem from="1592443369248" duration="2929000" />
+      <workItem from="1592443369248" duration="3102000" />
+      <workItem from="1592805183431" duration="160000" />
+      <workItem from="1592984737531" duration="8257000" />
     </task>
     <servers />
   </component>
@@ -67,5 +78,17 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="450" y="369" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1440.900@0.0.1440.900" timestamp="1592193378243" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/src/views/index.vue</url>
+          <line>83</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

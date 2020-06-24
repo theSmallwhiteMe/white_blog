@@ -1,11 +1,16 @@
 module.exports = {
+    lintOnSave:false,
     devServer: {
         open: true, //是否自动弹出浏览器页面
         host: "localhost",
         port: '8888',
         https: false,
         hotOnly: false,
-        proxy: 'http://localhost:8080'
+        proxy: 'http://localhost:8080',
+        // overlay:{
+        //     warning:false,
+        //     errors:false
+        // },
     },
     css: {
         loaderOptions: {

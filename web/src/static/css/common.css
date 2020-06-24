@@ -62,6 +62,10 @@ ant vue 覆盖部分
     border: none !important;
 }
 
+.ant-list-pagination {
+    text-align: center !important;
+}
+
 /**
 @end
  */

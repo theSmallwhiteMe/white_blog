@@ -99,12 +99,72 @@
                         </div>
                     </transition>
                 </div>
+                <div class="article" style="text-align: left">
+                    <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
+                        <div slot="footer"><b>ant design vue</b> footer part</div>
+                        <a-list-item slot="renderItem" key="item.title" slot-scope="item">
+                            <template v-for="{ type, text } in actions" slot="actions">
+                                <span :key="type">
+                                  <a-icon :type="type" style="margin-right: 8px" />
+                                  {{ text }}
+                                </span>
+                            </template>
+                            <img slot="extra"
+                                 width="272"
+                                 alt="logo"
+                                 src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
+                            <a-list-item-meta :description="item.description">
+                                <a slot="title" :href="item.href">{{ item.title }}</a>
+                                <a-avatar slot="avatar" :src="item.avatar" />
+                            </a-list-item-meta>
+                            <div class="content">
+                                {{ item.content }}
+                            </div>
+                        </a-list-item>
+                    </a-list>
+                </div>
+            </div>
+            <div class="right-container">
+                <a-list item-layout="horizontal" :data-source="data">
+                    <a-list-item slot="renderItem" slot-scope="item">
+                        <a-list-item-meta>
+                            <a slot="title" href="https://www.antdv.com/">{{ item.title }}</a>
+                        </a-list-item-meta>
+                    </a-list-item>
+                </a-list>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    const data = [
+        {
+            title: 'Ant Design Title 1',
+        },
+        {
+            title: 'Ant Design Title 2',
+        },
+        {
+            title: 'Ant Design Title 3',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+    ];
+    const listData = [];
+    for (let i = 0; i < 23; i++) {
+        listData.push({
+            href: 'https://www.antdv.com/',
+            title: `ant design vue part ${i}`,
+            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            description:
+                'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+            content:
+                'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+        });
+    }
+
     import headerNav from "../components/header-nav";
     export default {
         name: "index",
@@ -118,6 +178,21 @@
                 img2:require('../assets/banner2.jpg'),
                 img3:require('../assets/banner3.jpg'),
                 time:1,
+
+                listData,
+                pagination: {
+                    onChange: page => {
+                        console.log(page);
+                    },
+                    pageSize: 6,
+                },
+                actions: [
+                    { type: 'star-o', text: '156' },
+                    { type: 'like-o', text: '156' },
+                    { type: 'message', text: '2' },
+                ],
+
+                data,
             };
         },
         mounted() {
@@ -127,16 +202,12 @@
                 if (_this.time == 4){
                     _this.time = 1
                 }
-            },1500)
+            },50000)
         }
     }
 </script>
 
 <style scoped>
-    .box{
-        display: -webkit-flex; /* Safari */
-        display: flex;
-    }
     .menus {
         text-align: left;
         background: #0c273c;
@@ -154,6 +225,10 @@
         color: #FFFFFF !important;
     }
 
+    .box{
+        display: -webkit-flex; /* Safari */
+        display: flex;
+    }
     .menus-vertical{
         width: 188px;
         text-align: left;
@@ -194,7 +269,27 @@
         position: absolute;
     }
 
+    /**避免列表文字溢出@satrt**/
+    .ant-list-item-meta-description,
+    .content {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
 
+    .ant-list-item-meta-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+    /**@end***/
+
+    .right-container {
+        width: 220px;
+        margin-left: 15px;
+    }
     .fade-enter-active,
     .fade-leave-active {
         transition: all 1s;
