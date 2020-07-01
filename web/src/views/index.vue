@@ -2,35 +2,35 @@
     <div>
         <header-nav></header-nav>
         <a-menu class="menus main-p"
-                    mode="horizontal">
-                <a-menu-item key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
-                <a-menu-item key="app"> <a-icon type="appstore" />Navigation Two </a-menu-item>
-                <a-sub-menu>
+                        mode="horizontal">
+                    <a-menu-item key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
+                    <a-menu-item key="app"> <a-icon type="appstore" />Navigation Two </a-menu-item>
+                    <a-sub-menu>
                     <span slot="title" class="submenu-title-wrapper">
                         <a-icon type="setting" />Navigation Three - Submenu
                     </span>
-                    <a-menu-item-group title="Item 1">
-                        <a-menu-item key="setting:1">
-                            Option 1
-                        </a-menu-item>
-                        <a-menu-item key="setting:2">
-                            Option 2
-                        </a-menu-item>
-                    </a-menu-item-group>
-                    <a-menu-item-group title="Item 2">
-                        <a-menu-item key="setting:3">
-                            Option 3
-                        </a-menu-item>
-                        <a-menu-item key="setting:4">
-                            Option 4
-                        </a-menu-item>
-                    </a-menu-item-group>
-                </a-sub-menu>
-                <a-menu-item key="alipay">
-                    Navigation Four - Link
-                </a-menu-item>
-            </a-menu>
-        <div class="box main-m">
+                        <a-menu-item-group title="Item 1">
+                            <a-menu-item key="setting:1">
+                                Option 1
+                            </a-menu-item>
+                            <a-menu-item key="setting:2">
+                                Option 2
+                            </a-menu-item>
+                        </a-menu-item-group>
+                        <a-menu-item-group title="Item 2">
+                            <a-menu-item key="setting:3">
+                                Option 3
+                            </a-menu-item>
+                            <a-menu-item key="setting:4">
+                                Option 4
+                            </a-menu-item>
+                        </a-menu-item-group>
+                    </a-sub-menu>
+                    <a-menu-item key="alipay">
+                        Navigation Four - Link
+                    </a-menu-item>
+                </a-menu>
+        <div class="box main-m" style="margin-top: 200px">
             <a-menu class="menus-vertical"
                     :default-selected-keys="['1']"
                     :default-open-keys="['sub1']"
@@ -81,7 +81,7 @@
                     </a-sub-menu>
                 </a-sub-menu>
             </a-menu>
-            <div class="left-container">
+            <div class="left-container" :style="{height:containerHeight+'px'}">
                 <div class="banner">
                     <transition name="fade">
                         <div v-show="time == 1">
@@ -138,6 +138,8 @@
 </template>
 
 <script>
+    import {GLOBAL_VIEW} from "../static/js/common.js"
+
     const data = [
         {
             title: 'Ant Design Title 1',
@@ -171,6 +173,9 @@
         components:{
             headerNav,
         },
+        props:[
+            ...GLOBAL_VIEW.props
+        ],
         data() {
             return {
                 collapsed:false,
@@ -192,6 +197,7 @@
                     { type: 'message', text: '2' },
                 ],
 
+                containerHeight:600,
                 data,
             };
         },
@@ -203,6 +209,22 @@
                     _this.time = 1
                 }
             },50000)
+
+            this.getClientHeight()
+        },
+        watch:{
+            ...GLOBAL_VIEW.watch
+        },
+        methods:{
+            getClientHeight() {
+                let clientHeight = 0;
+                if(document.body.clientHeight&&document.documentElement.clientHeight) {
+                    clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+                } else {
+                    clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+                }
+                this.containerHeight =  clientHeight - 200;
+            }
         }
     }
 </script>
@@ -216,6 +238,7 @@
         font-weight: bold;
         height: 48px;
         width: 100%;
+        transition: all .5s linear;
     }
     .menus li:nth-child(2){
         background: #ff5b5b;
@@ -233,6 +256,8 @@
         width: 188px;
         text-align: left;
         border: none;
+        /*position: fixed;*/
+        /*transition: all 1.5s linear;*/
     }
     .menus-vertical li {
         border:1px dashed #ededed !important;
@@ -256,6 +281,8 @@
     .left-container{
         flex:1;
         margin:15px 0 0 15px;
+        height: 100%;
+        overflow-y: scroll;
     }
     .banner{
         height: 180px;

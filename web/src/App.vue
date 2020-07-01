@@ -33,7 +33,7 @@ function getScrollTop() {
   } else if (document.body) {
     scrollPos = document.body.scrollTop;
   }
-  console.log( scrollPos )
+  //console.log( scrollPos )
   vueElement.scrollHeight = scrollPos
   //return scrollPos;
 }
