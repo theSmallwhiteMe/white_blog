@@ -50,7 +50,7 @@ if(document.addEventListener){
 <style>
 #app {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-  font-weight: bold;
+  font-weight: bold !important;
   font-family: 'Lato' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

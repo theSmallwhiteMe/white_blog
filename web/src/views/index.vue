@@ -82,49 +82,52 @@
                 </a-sub-menu>
             </a-menu>
             <div class="left-container" :style="{height:containerHeight+'px'}">
-                <div class="banner">
-                    <transition name="fade">
-                        <div v-show="time == 1">
-                            <img :src="img1">
-                        </div>
-                    </transition>
-                    <transition name="fade">
-                        <div v-show="time == 2">
-                            <img :src="img2">
-                        </div>
-                    </transition>
-                    <transition name="fade">
-                        <div v-show="time == 3">
-                            <img :src="img3">
-                        </div>
-                    </transition>
-                </div>
-                <div class="article" style="text-align: left">
-                    <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
-                        <div slot="footer"><b>ant design vue</b> footer part</div>
-                        <a-list-item slot="renderItem" key="item.title" slot-scope="item">
-                            <template v-for="{ type, text } in actions" slot="actions">
-                                <span :key="type">
-                                  <a-icon :type="type" style="margin-right: 8px" />
-                                  {{ text }}
-                                </span>
-                            </template>
-                            <img slot="extra"
-                                 width="272"
-                                 alt="logo"
-                                 src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
-                            <a-list-item-meta :description="item.description">
-                                <a slot="title" :href="item.href">{{ item.title }}</a>
-                                <a-avatar slot="avatar" :src="item.avatar" />
-                            </a-list-item-meta>
-                            <div class="content">
-                                {{ item.content }}
+                <article-content v-if="true"></article-content>
+                <template v-else>
+                    <div class="banner">
+                        <transition name="fade">
+                            <div v-show="time == 1">
+                                <img :src="img1">
                             </div>
-                        </a-list-item>
-                    </a-list>
-                </div>
+                        </transition>
+                        <transition name="fade">
+                            <div v-show="time == 2">
+                                <img :src="img2">
+                            </div>
+                        </transition>
+                        <transition name="fade">
+                            <div v-show="time == 3">
+                                <img :src="img3">
+                            </div>
+                        </transition>
+                    </div>
+                    <div class="article" style="text-align: left">
+                        <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
+                            <div slot="footer"><b>ant design vue</b> footer part</div>
+                            <a-list-item slot="renderItem" key="item.title" slot-scope="item">
+                                <template v-for="{ type, text } in actions" slot="actions">
+                                    <span :key="type">
+                                      <a-icon :type="type" style="margin-right: 8px" />
+                                      {{ text }}
+                                    </span>
+                                </template>
+                                <img slot="extra"
+                                     width="272"
+                                     alt="logo"
+                                     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>
+                                <a-list-item-meta :description="item.description">
+                                    <a slot="title" :href="item.href">{{ item.title }}</a>
+                                    <a-avatar slot="avatar" :src="item.avatar" />
+                                </a-list-item-meta>
+                                <div class="content">
+                                    {{ item.content }}
+                                </div>
+                            </a-list-item>
+                        </a-list>
+                    </div>
+                </template>
             </div>
-            <div class="right-container">
+            <div class="right-container" v-if="false">
                 <a-list item-layout="horizontal" :data-source="data">
                     <a-list-item slot="renderItem" slot-scope="item">
                         <a-list-item-meta>
@@ -168,10 +171,13 @@
     }
 
     import headerNav from "../components/header-nav";
+    import articleContent from "../components/article-content";
+
     export default {
         name: "index",
         components:{
             headerNav,
+            articleContent,
         },
         props:[
             ...GLOBAL_VIEW.props
@@ -283,6 +289,7 @@
         margin:15px 0 0 15px;
         height: 100%;
         overflow-y: scroll;
+        border:1px dashed #ededed !important;
     }
     .banner{
         height: 180px;
@@ -314,8 +321,10 @@
     /**@end***/
 
     .right-container {
+        height: 100%;
         width: 220px;
         margin-left: 15px;
+        border:1px dashed #ededed !important;
     }
     .fade-enter-active,
     .fade-leave-active {
