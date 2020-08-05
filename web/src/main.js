@@ -11,7 +11,8 @@ import {router} from './library/router'
 
 //@start ant-vue
 import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/dist/antd.less';
+import './library/ant-new-css.less'
 Vue.use(Antd);
 //@end
 

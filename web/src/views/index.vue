@@ -2,7 +2,7 @@
     <div>
         <header-nav></header-nav>
         <a-menu class="menus main-p"
-                        mode="horizontal">
+                mode="horizontal">
                     <a-menu-item key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
                     <a-menu-item key="app"> <a-icon type="appstore" />Navigation Two </a-menu-item>
                     <a-sub-menu>
