@@ -8,13 +8,14 @@
                 <b>21</b> 人觉得牛逼
             </span>
         </div>
+        <!--评论列表@start-->
         <a-comment class="comment-item" v-for="i in [1,2,3,4,5,6]">
             <template slot="actions">
                 <span key="comment-basic-like">
                     <a-tooltip title="Like">
                       <a-icon type="like" :theme="action === 'liked' ? 'filled' : 'outlined'" @click="like" />
                     </a-tooltip>
-                    <span style="padding-left: '8px';cursor: 'auto'">
+                    <span style="padding-left: 8px;cursor: auto">
                       {{ likes }}
                     </span>
                 </span>
@@ -24,7 +25,7 @@
                                   :theme="action === 'disliked' ? 'filled' : 'outlined'"
                                   @click="dislike"/>
                       </a-tooltip>
-                      <span style="padding-left: '8px';cursor: 'auto'">
+                      <span style="padding-left: 8px;cursor: auto">
                         {{ dislikes }}
                       </span>
                 </span>
@@ -43,7 +44,20 @@
             <a-tooltip slot="datetime" :title="moment().format('YYYY-MM-DD HH:mm:ss')">
                 <span>{{ moment().fromNow() }}</span>
             </a-tooltip>
+            <!--评论回复框@start-->
+            <div slot="content">
+                <a-form-item>
+                    <a-textarea :rows="4" :value="value" @change="handleChange" />
+                </a-form-item>
+                <a-form-item>
+                    <a-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
+                        Add Comment
+                    </a-button>
+                </a-form-item>
+            </div>
+            <!--评论回复框@end-->
         </a-comment>
+        <!--评论列表@end-->
     </div>
 </template>
 

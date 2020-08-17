@@ -3,10 +3,13 @@
         <header-nav></header-nav>
         <a-menu class="menus main-p"
                 mode="horizontal">
-                    <a-menu-item key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
+                    <a-menu-item
+                            style="pointer-events: none;"
+                            key="mail"> <a-icon type="mail" />Navigation One </a-menu-item>
                     <a-menu-item key="app"> <a-icon type="appstore" />Navigation Two </a-menu-item>
                     <a-sub-menu>
-                    <span slot="title" class="submenu-title-wrapper">
+                    <span slot="title"
+                          class="submenu-title-wrapper">
                         <a-icon type="setting" />Navigation Three - Submenu
                     </span>
                         <a-menu-item-group title="Item 1">
@@ -141,7 +144,8 @@
 </template>
 
 <script>
-    import {GLOBAL_VIEW} from "../static/js/common.js"
+    import {GLOBAL_VIEW} from "../static/js/common"
+    import {Tools} from "../library/tools"
 
     const data = [
         {
@@ -217,6 +221,8 @@
             },50000)
 
             this.getClientHeight()
+
+            console.log('Tools:',Tools.getClientOS,Tools.getClientBrowser)
         },
         watch:{
             ...GLOBAL_VIEW.watch

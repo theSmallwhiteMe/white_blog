@@ -1,4 +1,4 @@
-module white_blog
+module github.com/theSmallwhiteMe/white_blog
 
 go 1.14
 
