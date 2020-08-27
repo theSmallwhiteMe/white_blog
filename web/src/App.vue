@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <router-view :scrollHeight="scrollHeight"></router-view>
+    <router-view :scrollHeight="scrollHeight"
+                 :LoginShowFlag="LoginShowFlag"></router-view>
+    <login v-if="LoginShowFlag"></login>
   </div>
 </template>
 
 <script>
+import login from "./views/login";
 let vueElement;
 function map_callback(el) {
   vueElement = el
@@ -14,13 +17,14 @@ export default {
   data(){
     return {
       scrollHeight:0,
+      LoginShowFlag:false,
     }
   },
   mounted() {
     map_callback(this)
   },
   components: {
-
+    login
   }
 }
 

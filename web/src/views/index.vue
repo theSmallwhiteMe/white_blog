@@ -85,7 +85,7 @@
                 </a-sub-menu>
             </a-menu>
             <div class="left-container" :style="{height:containerHeight+'px'}">
-                <article-content v-if="true"></article-content>
+                <article-content v-if="false"></article-content>
                 <template v-else>
                     <div class="banner">
                         <transition name="fade">
@@ -130,7 +130,7 @@
                     </div>
                 </template>
             </div>
-            <div class="right-container" v-if="false">
+            <div class="right-container" v-if="true">
                 <a-list item-layout="horizontal" :data-source="data">
                     <a-list-item slot="renderItem" slot-scope="item">
                         <a-list-item-meta>
@@ -228,6 +228,7 @@
             ...GLOBAL_VIEW.watch
         },
         methods:{
+            ...GLOBAL_VIEW.methods,
             getClientHeight() {
                 let clientHeight = 0;
                 if(document.body.clientHeight&&document.documentElement.clientHeight) {

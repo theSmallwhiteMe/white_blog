@@ -73,7 +73,7 @@ ant vue 覆盖部分
     text-align: center !important;
 }
 
-has-error .ant-form-explain, .has-error .ant-form-split {
+.has-error .ant-form-explain, .has-error .ant-form-split {
     text-align: left !important;
 }
 

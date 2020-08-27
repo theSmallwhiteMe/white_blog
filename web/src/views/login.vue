@@ -10,7 +10,7 @@
                     class="login-form"
                     @submit="handleSubmit">
                 <a-form-item>
-                    <a-input :max-length=16
+                    <a-input :max-length=50
                              v-decorator="verifyData.username"
                              placeholder="Username">
                         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
@@ -61,11 +61,17 @@
                 verifyData:{
                     username:[
                         'username',
-                        { rules: [{required: true, message: 'Please input your username!'  }] },
+                        {
+                            rules: [{required: true, message: 'Please input your username!'  }] ,
+                            initialValue: 'thesmallwhiteme@163.com',
+                        },
                     ],
                     password:[
                         'password',
-                        { rules: [{ required: true, message: 'Please input your Password!' }] },
+                        {
+                            rules: [{ required: true, message: 'Please input your Password!' }],
+                            initialValue: '111111',
+                        },
                     ],
                     remember:[
                         'remember',
@@ -75,19 +81,16 @@
             }
         },
         mounted() {},
-        // beforeCreate() {
-        //     this.form = this.$form.createForm(this);
-        // },
         methods:{
             handleSubmit(e) {
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
-                    console.log('err',err,'values',values)
                     if (!err) {
                         console.log('Received values of form: ', values);
                     }
                 });
             },
+
         }
     }
 </script>
@@ -96,7 +99,11 @@
     .backdrop{
         height: 100%;
         width: 100%;
-        background: rgba(0,0,0,0.2);
+        background: rgba(0,0,0,0.3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999999;
     }
     .box {
         background: #ffffff;
@@ -108,7 +115,7 @@
         right: 0;
         left: 0;
         width: 400px;
-        height: 600px;
+        height: 400px;
         padding: 15px;
     }
 

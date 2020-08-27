@@ -66,3 +66,29 @@ export const getBrowserName = function (){
         return 'Unknown';
     }
 }
+
+export const isEmail = function(str){
+    let mailExp = /^([a-zA-Z\d])(\w|\-)+@[a-zA-Z\d]+\.[a-zA-Z]{2,4}$/
+    return !mailExp.test(str)
+}
+
+export const isPhone = function(str){
+    let phoneExp = /^1\d{10}$/
+    return !phoneExp.test(str)
+}
+
+export const isUndefined = function (obj) {
+    return typeof obj == "undefined"
+}
+
+export const notSpace = function(val){
+    return val.replace(/\s+/g,'')
+}
+
+export const copyObj = function (obj) {
+    return JSON.parse(JSON.stringify(obj))
+}
+
+export const uniqArray = function (arr) {
+    return [...new Set(arr)]
+}

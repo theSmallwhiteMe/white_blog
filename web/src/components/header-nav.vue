@@ -9,7 +9,8 @@
                 <span><a-icon type="twitter" /></span>
             </div>
             <div class="f-right">
-                <span class="c-23aee2">LOGIN</span>
+                <span class="c-23aee2"
+                      @click="loginShowOrHide">LOGIN</span>
                 <span class="c-ff5b5b">REGISTER</span>
                 <span class="language">
                    <a-select value="ENGLISH"
@@ -62,8 +63,12 @@
 </template>
 
 <script>
+    import {GLOBAL_VIEW} from "../static/js/common"
     export default {
-        name: "headerNav"
+        name: "headerNav",
+        methods:{
+            ...GLOBAL_VIEW.methods
+        }
     }
 </script>
 
