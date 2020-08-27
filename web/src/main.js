@@ -16,6 +16,9 @@ import './library/ant-new-css.less'
 Vue.use(Antd);
 //@end
 
+import User from './library/user'
+Vue.prototype.User = User
+
 Vue.config.productionTip = false
 new Vue({
   router,

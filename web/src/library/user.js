@@ -24,5 +24,14 @@ export const User = {
         }
         return true
     },
-
+    //登录
+    afterLogin(userInfo){
+        // 将用户信息存入localStorage
+        storage.setItem(this.getUniqueKey(),JSON.stringify(userInfo))
+    },
+    //获取用户信息
+    getUserInfo(){
+        let userInfo = storage.getItem(this.getUniqueKey())
+        return JSON.parse(userInfo)
+    }
 }
