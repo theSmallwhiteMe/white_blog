@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <router-view :scrollHeight="scrollHeight"
-                 :LoginShowFlag="LoginShowFlag"></router-view>
-    <login v-if="LoginShowFlag"></login>
+    <router-view :scrollHeight="scrollHeight"></router-view>
   </div>
 </template>
 
@@ -17,7 +15,6 @@ export default {
   data(){
     return {
       scrollHeight:0,
-      LoginShowFlag:false,
     }
   },
   mounted() {

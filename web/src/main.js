@@ -1,5 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuex from 'vuex'
+import { state, mutations } from './library/store'
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state,
+  mutations
+})
 
 import "./static/css/common.css"
 
@@ -16,11 +23,14 @@ import './library/ant-new-css.less'
 Vue.use(Antd);
 //@end
 
+
+
 import User from './library/user'
 Vue.prototype.User = User
 
 Vue.config.productionTip = false
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

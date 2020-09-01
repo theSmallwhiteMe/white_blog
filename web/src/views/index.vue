@@ -223,6 +223,7 @@
             this.getClientHeight()
 
             console.log('Tools:',Tools.getClientOS,Tools.getClientBrowser)
+            console.log('User',this.User)
         },
         watch:{
             ...GLOBAL_VIEW.watch

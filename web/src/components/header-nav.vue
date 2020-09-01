@@ -1,5 +1,7 @@
 <template>
     <div>
+        <login v-show="LoginShowFlag"></login>
+<!--        <register v-show="RegisterShowFlag"></register>-->
         <nav class="main-p">
             <div class="f-left external-links">
                 <span><a-icon type="github" /></span>
@@ -10,8 +12,9 @@
             </div>
             <div class="f-right">
                 <span class="c-23aee2"
-                      @click="loginShowOrHide">LOGIN</span>
-                <span class="c-ff5b5b">REGISTER</span>
+                      @click="loginShow">LOGIN</span>
+                <span class="c-ff5b5b"
+                      @click="registerShow">REGISTER</span>
                 <span class="language">
                    <a-select value="ENGLISH"
                              size="small"
@@ -63,11 +66,34 @@
 </template>
 
 <script>
-    import {GLOBAL_VIEW} from "../static/js/common"
+    import login from "../views/login";
+    import register from "../views/register";
+    import {mapState} from "vuex"
     export default {
         name: "headerNav",
+        components: {
+            register,
+            login
+        },
+        data(){
+          return {
+              //LoginShowFlag:false,
+              RegisterShowFlag:false,
+          }
+        },
+        computed:{
+            LoginShowFlag(){
+                return  this.$store.state.isLoginShow
+            }
+        },
         methods:{
-            ...GLOBAL_VIEW.methods
+           loginShow(){
+               //this.LoginShowFlag = true
+               this.$store.commit('loginShow')
+           },
+           registerShow(){
+               this.RegisterShowFlag = true
+           }
         }
     }
 </script>

@@ -1,5 +1,6 @@
 <template>
-    <div class="backdrop">
+    <div class="backdrop"
+         @click="closeBox">
         <div class="box">
             <div class="logo c-ff5b5b"
                  style="font-size: 18px;font-weight: bold;padding-left:15px;margin: 44px 0">
@@ -90,7 +91,11 @@
                     }
                 });
             },
-
+            closeBox(){
+                if (this.$route.path != '/login') {
+                    this.$store.commit('loginShow')
+                }
+            }
         }
     }
 </script>

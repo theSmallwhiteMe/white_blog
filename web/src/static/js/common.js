@@ -1,6 +1,6 @@
 export const GLOBAL_VIEW = {
     data:{
-        LoginShowFlag:false
+
     },
     props:[
         'scrollHeight',
@@ -12,8 +12,6 @@ export const GLOBAL_VIEW = {
         }
     },
     methods:{
-        loginShowOrHide() {
-           this.LoginShowFlag = !this.LoginShowFlag
-        },
+
     }
 }

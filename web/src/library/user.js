@@ -3,7 +3,7 @@ import {ENV} from "./env";
 import { v4 as uuidv4 } from 'uuid';
 
 let storage = window.localStorage;
-export const User = {
+const User = {
     //查看本机标示
     getUniqueKey(){
         if (!Cookie.check(ENV.AppKey)) {
@@ -34,4 +34,8 @@ export const User = {
         let userInfo = storage.getItem(this.getUniqueKey())
         return JSON.parse(userInfo)
     }
+}
+
+export default {
+    User
 }
