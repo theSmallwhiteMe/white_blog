@@ -1,7 +1,9 @@
 <template>
-    <div class="backdrop"
-         @click="closeBox">
+    <div class="backdrop">
         <div class="box">
+            <a-icon @click="closeBox"
+                    class="close"
+                    type="close" />
             <div class="logo c-ff5b5b"
                  style="font-size: 18px;font-weight: bold;padding-left:15px;margin: 44px 0">
                 theSmallWhiteMe
@@ -18,12 +20,12 @@
                     </a-input>
                 </a-form-item>
                 <a-form-item>
-                    <a-input v-decorator="verifyData.password"
+                    <a-input-password v-decorator="verifyData.password"
                              :max-length=50
                              type="password"
                              placeholder="Password">
                         <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
-                    </a-input>
+                    </a-input-password>
                 </a-form-item>
                 <a-form-item>
                     <a-checkbox class="f-left"
@@ -109,6 +111,9 @@
         top: 0;
         left: 0;
         z-index: 999999;
+    }
+    .close {
+        float: right;
     }
     .box {
         background: #ffffff;

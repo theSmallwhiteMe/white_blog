@@ -1,6 +1,9 @@
 <template>
     <div class="backdrop">
         <div class="box">
+            <a-icon @click="closeBox"
+                    class="close"
+                    type="close" />
             <div class="logo c-ff5b5b"
                  style="font-size: 18px;font-weight: bold;padding-left:15px;margin: 44px 0">
                 theSmallWhiteMe
@@ -11,39 +14,33 @@
                     @submit="handleSubmit">
                 <a-form-item>
                     <a-input :max-length=50
-                             v-decorator="verifyData.username"
+                             v-decorator="verifyData.nickname"
                              placeholder="Username">
                         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
                     </a-input>
                 </a-form-item>
                 <a-form-item>
-                    <a-input v-decorator="verifyData.password"
+                    <a-input :max-length=50
+                             v-decorator="verifyData.username"
+                             placeholder="Email">
+                        <a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
+                    </a-input>
+                </a-form-item>
+                <a-form-item>
+                    <a-input-password v-decorator="verifyData.password"
                              :max-length=50
                              type="password"
                              placeholder="Password">
                         <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
-                    </a-input>
+                    </a-input-password>
                 </a-form-item>
                 <a-form-item>
-                    <a-checkbox class="f-left"
-                                v-decorator="verifyData.remember">
-                        Remember me
-                    </a-checkbox>
-                    <a class="login-form-forgot"
-                       href="">
-                        Forgot password
-                    </a>
                     <a-button type="primary"
                               html-type="submit"
                               class="login-form-button">
-                        Log in
+                        Sign up
                     </a-button>
-                    <span class="f-left">
-                Or
-                <a href="">
-                    register now!
-                </a>
-            </span>
+                    <span class="f-left"></span>
                 </a-form-item>
             </a-form>
         </div>
@@ -59,23 +56,23 @@
                 form:this.$form.createForm(this),
                 //表单验证提示
                 verifyData:{
+                    nickname:[
+                        'nickname',
+                        {
+                            rules: [{required: true, message: 'Please input your username!'  }] ,
+                        },
+                    ],
                     username:[
                         'username',
                         {
-                            rules: [{required: true, message: 'Please input your username!'  }] ,
-                            initialValue: 'thesmallwhiteme@163.com',
+                            rules: [{required: true, message: 'Please input your email!'  }] ,
                         },
                     ],
                     password:[
                         'password',
                         {
                             rules: [{ required: true, message: 'Please input your Password!' }],
-                            initialValue: '111111',
                         },
-                    ],
-                    remember:[
-                        'remember',
-                        {valuePropName: 'checked', initialValue: true,},
                     ]
                 },
             }
@@ -90,7 +87,11 @@
                     }
                 });
             },
-
+            closeBox(){
+                if (this.$route.path != '/register') {
+                    this.$store.commit('registerShow')
+                }
+            }
         }
     }
 </script>
@@ -118,7 +119,9 @@
         height: 400px;
         padding: 15px;
     }
-
+    .close {
+        float: right;
+    }
     @media screen and (max-width:813px){
         .box {
             width: 100%;

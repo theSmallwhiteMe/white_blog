@@ -1,7 +1,7 @@
 <template>
     <div>
         <login v-show="LoginShowFlag"></login>
-<!--        <register v-show="RegisterShowFlag"></register>-->
+        <register v-show="RegisterShowFlag"></register>
         <nav class="main-p">
             <div class="f-left external-links">
                 <span><a-icon type="github" /></span>
@@ -77,22 +77,23 @@
         },
         data(){
           return {
-              //LoginShowFlag:false,
-              RegisterShowFlag:false,
+
           }
         },
         computed:{
             LoginShowFlag(){
                 return  this.$store.state.isLoginShow
+            },
+            RegisterShowFlag(){
+                return  this.$store.state.isRegisterShow
             }
         },
         methods:{
            loginShow(){
-               //this.LoginShowFlag = true
                this.$store.commit('loginShow')
            },
            registerShow(){
-               this.RegisterShowFlag = true
+               this.$store.commit('registerShow')
            }
         }
     }

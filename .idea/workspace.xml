@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="77e9581f-530c-41c7-9a0e-b0108c49cd42" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/library/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/library/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,18 +54,6 @@
       <recent name="$PROJECT_DIR$/web/src/static" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -87,11 +70,13 @@
       <workItem from="1592443369248" duration="3102000" />
       <workItem from="1592805183431" duration="160000" />
       <workItem from="1592984737531" duration="8537000" />
+      <workItem from="1601363090759" duration="605000" />
+      <workItem from="1602226704519" duration="70000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -103,6 +88,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -124,8 +110,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/src/main.js</url>
-          <line>12</line>
-          <properties lambdaOrdinal="-1" />
+          <line>19</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
