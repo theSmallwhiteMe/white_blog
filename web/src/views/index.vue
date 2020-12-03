@@ -105,7 +105,9 @@
                         </transition>
                     </div>
                     <div class="article" style="text-align: left">
-                        <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
+                        <a-list item-layout="vertical"
+                                size="large"
+                                :data-source="listData">
                             <div slot="footer"><b>ant design vue</b> footer part</div>
                             <a-list-item slot="renderItem" key="item.title" slot-scope="item">
                                 <template v-for="{ type, text } in actions" slot="actions">
@@ -212,6 +214,8 @@
             };
         },
         mounted() {
+            GLOBAL_VIEW.mounted()
+
             let _this = this
             setInterval(function () {
                 _this.time++
@@ -219,26 +223,12 @@
                     _this.time = 1
                 }
             },50000)
-
-            this.getClientHeight()
-
-            console.log('Tools:',Tools.getClientOS,Tools.getClientBrowser)
-            console.log('User',this.User)
         },
         watch:{
             ...GLOBAL_VIEW.watch
         },
         methods:{
             ...GLOBAL_VIEW.methods,
-            getClientHeight() {
-                let clientHeight = 0;
-                if(document.body.clientHeight&&document.documentElement.clientHeight) {
-                    clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-                } else {
-                    clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-                }
-                this.containerHeight =  clientHeight - 200;
-            }
         }
     }
 </script>

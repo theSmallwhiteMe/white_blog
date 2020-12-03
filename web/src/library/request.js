@@ -4,9 +4,9 @@ import {message} from "ant-design-vue";
 // 请求等待事件
 axios.defaults.timeout = 15000
 
-//axios.defaults.baseURL = 'http://localhost:8080'
+//axios.defaults.baseURL = 'http://localhost:8060'
 
-const getUserToken = function() {
+export const GetUserToken = function() {
     let token = localStorage.getItem('user_access_token')
     if (typeof token != 'string' || token.length < 1) {
         return false
@@ -18,7 +18,7 @@ const getUserToken = function() {
 // 请求头
 axios.defaults.headers = {
     'Content-Type':'application/json;charset=UTF-8',
-    'access_token':getUserToken()
+    'access_token':GetUserToken()
 }
 
 // 请求拦截器
@@ -27,7 +27,7 @@ axios.interceptors.request.use(
         // 每次发送请求之前判断vuex中是否存在token
         // 如果存在，则统一在http请求的header都加上token，这样后台根据token判断你的登录情况
         // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
-        const token = getUserToken();
+        const token = GetUserToken();
         token && (config.headers.Authorization = token);
         return config;
     },
@@ -74,7 +74,7 @@ axios.interceptors.response.use(
                     break;
                 // 其他错误，直接抛出错误提示
                 default:
-
+                    message.warn('网络错误')
             }
             return Promise.reject(error.response);
         }
@@ -114,3 +114,4 @@ export function GET(url) {
             })
     });
 }
+

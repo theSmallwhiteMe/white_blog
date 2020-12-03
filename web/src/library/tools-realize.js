@@ -92,3 +92,13 @@ export const copyObj = function (obj) {
 export const uniqArray = function (arr) {
     return [...new Set(arr)]
 }
+
+export const getClientHeight = function () {
+    let clientHeight = 0;
+    if(document.body.clientHeight&&document.documentElement.clientHeight) {
+        clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+    } else {
+        clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+    }
+    return clientHeight - 200;
+}

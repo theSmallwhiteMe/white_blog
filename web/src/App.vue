@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import login from "./views/login";
 let vueElement;
 function map_callback(el) {
   vueElement = el
@@ -21,7 +20,7 @@ export default {
     map_callback(this)
   },
   components: {
-    login
+    //login
   }
 }
 

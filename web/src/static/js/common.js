@@ -1,3 +1,6 @@
+import {Tools} from "../../library/tools";
+import {Auth} from "../../library/api";
+
 export const GLOBAL_VIEW = {
     data:{
 
@@ -13,5 +16,10 @@ export const GLOBAL_VIEW = {
     },
     methods:{
 
+    },
+    mounted(){
+        Auth()
+        console.log('Tools:',Tools.getClientOS,Tools.getClientBrowser)
+        console.log('User',this.User)
     }
 }

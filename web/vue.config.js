@@ -6,7 +6,13 @@ module.exports = {
         port: '8888',
         https: false,
         hotOnly: false,
-        proxy: 'http://localhost:8080',
+        proxy: {
+            '/api': {
+                target: "http://localhost:8060", //这个是新的，本地的地址
+                changeOrigin: true,
+                logLevel: "debug"
+            }
+        }
         // overlay:{
         //     warning:false,
         //     errors:false

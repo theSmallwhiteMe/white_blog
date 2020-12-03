@@ -10,6 +10,8 @@ import {
     copyObj,
 
     uniqArray,
+
+    getClientHeight
 } from './tools-realize'
 
 import { Cookie } from "./cookie";
@@ -32,4 +34,6 @@ export const Tools = {
     copyObj:copyObj,
     //数组去重
     uniqArray:uniqArray,
+
+    getClientHeight:getClientHeight,
 }
